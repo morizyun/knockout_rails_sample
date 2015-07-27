@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>KnockoutSample</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+    <title>KnockoutSample</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <h1>Static#<%= params[:page_name].presence || action_name %></h1>
+  <br/>
+  <br/>
+  <% if params[:page_name].blank? || %w(custombinding).include?(params[:page_name]) %>
+    <%= yield %>
+  <% else %>
+    <div data-bind="with: <%= params[:page_name] %>">
+        <%= yield %>
+    </div>
+    <br/>
+    <%= link_to 'Top', root_path %>
+  <% end %>
 
 </body>
 </html>

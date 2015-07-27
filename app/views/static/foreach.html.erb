@@ -1,0 +1,10 @@
+<ul data-bind="foreach: { data: items, as: 'item' }">
+    <li><span data-bind="text: $index"></span> : <span data-bind="text: item"></span></li>
+</ul>
+
+<div>
+    <button data-bind="click: addItem">Add Item</button>
+</div>
+<div>
+    <button data-bind="click: removeItem">Remove Item</button>
+</div>

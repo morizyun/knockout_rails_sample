@@ -1,0 +1,5 @@
+<ul>
+    <% %w(text html visible css attr checkbox foreach template custombinding).each do |page_name| %>
+      <li><%= link_to page_name, static_page_path(page_name: page_name) %></li>
+    <% end %>
+</ul>

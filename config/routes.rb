@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  root 'hoges#index'
-  resources :hoges
+  root 'static#index'
+
+  scope '/static' do
+    get '/' => 'static#index'
+    get '/:page_name' => 'static#reder_page', as: :static_page
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
